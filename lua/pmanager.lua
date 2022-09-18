@@ -21,13 +21,16 @@ return require('packer').startup(function(use)
     use 'navarasu/onedark.nvim'
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
     use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-    use 'lukas-reineke/indent-blankline.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'numToStr/Comment.nvim'
     use 'kylechui/nvim-surround'
+    use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'nightly' }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
+    use { 'akinsho/toggleterm.nvim', tag = '*' }
+    use 'lewis6991/gitsigns.nvim'
+    use 'windwp/nvim-autopairs'
 
-    -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then
         require('packer').sync()
     end

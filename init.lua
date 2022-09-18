@@ -15,6 +15,8 @@ vim.opt.showmode = false
 
 -- Global settings
 vim.g.mapleader = ' '
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 
 
 -- Keybindings
@@ -89,3 +91,50 @@ require('nvim-treesitter.configs').setup({
 require('Comment').setup()
 
 require('nvim-surround').setup()
+
+require('nvim-tree').setup({
+    hijack_cursor = false,
+    on_attach = function(bufnr)
+        local bufmap = function(lhs, rhs, desc)
+            vim.keymap.set('n', lhs, rhs, { buffer = bufnr, desc = desc })
+        end
+
+        local api = require('nvim-tree.api')
+
+        bufmap('o', api.node.open.edit, 'Expand directory or open file')
+        bufmap('c', api.node.navigate.parent_close, 'Close parent directory')
+        bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
+    end
+})
+
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
+vim.keymap.set('n', '<leader>m', '<cmd>NvimTreeFocus<cr>')
+
+require('telescope').setup()
+
+vim.keymap.set('n', '<leader><space>', '<cmd>Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>?', '<cmd>Telescope oldfiles<cr>')
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
+vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
+
+require('toggleterm').setup({
+    open_mappings = '<C-g>',
+    direction = 'float',
+    shade_terminals = true
+})
+
+require('gitsigns').setup({
+    signs = {
+        add = {text = '▎'},
+        change = {text = '▎'},
+        delete = {text = '➤'},
+        topdelete = {text = '➤'},
+        changedelete = {text = '▎'},
+    }
+})
+
+require('nvim-autopairs').setup({
+    disable_filetype = { 'TelescopePrompt' , 'vim' },
+})
