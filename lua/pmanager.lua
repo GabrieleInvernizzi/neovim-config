@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
 
     use 'navarasu/onedark.nvim'
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'numToStr/Comment.nvim'
@@ -30,6 +30,17 @@ return require('packer').startup(function(use)
     use { 'akinsho/toggleterm.nvim', tag = '*' }
     use 'lewis6991/gitsigns.nvim'
     use 'windwp/nvim-autopairs'
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
+    use 'rafamadriz/friendly-snippets'
+
 
     if packer_bootstrap then
         require('packer').sync()
