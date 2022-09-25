@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
     use 'williamboman/mason-lspconfig.nvim'
     use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
     use 'rafamadriz/friendly-snippets'
+    use { 'startup-nvim/startup.nvim', requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' } }
 
 
     if packer_bootstrap then
