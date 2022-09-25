@@ -77,9 +77,9 @@ require('nvim-tree').setup({
 require('telescope').setup()
 
 require('toggleterm').setup({
-    open_mappings = '<C-g>',
     direction = 'float',
-    shade_terminals = true
+    shade_terminals = true,
+    float_ops = { border = 'curved' }
 })
 
 require('gitsigns').setup({
@@ -97,3 +97,5 @@ require('nvim-autopairs').setup({
 })
 
 require('startup').setup({ theme = 'startup_theme' })
+
+require('which-key').setup()

@@ -15,7 +15,7 @@ if packer_bootstrap then
     return
 end
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'        -- packer
 
     use 'navarasu/onedark.nvim'
@@ -41,12 +41,17 @@ return require('packer').startup(function(use)
     use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
     use 'rafamadriz/friendly-snippets'
     use { 'startup-nvim/startup.nvim', requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' } }
-
+    use 'folke/which-key.nvim'
 
     if packer_bootstrap then
         require('packer').sync()
     end
-end)
+end,
+config = {
+    display = {
+        open_fn = require('packer.util').float,
+    }
+}})
 
 
 

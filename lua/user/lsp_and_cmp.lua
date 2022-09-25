@@ -66,8 +66,6 @@ cmp.setup({
         end,
     },
     mapping = {
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
-
         ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
         ['<Down>'] = cmp.mapping.select_next_item(select_opts),
 
@@ -156,4 +154,23 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
     { border = 'rounded' }
 )
 
+-- Command cmp
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    },
+    {
+      { name = 'cmdline' }
+    })
+})
+
+for _,v in pairs({ '/', '?' }) do
+    cmp.setup.cmdline(v, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+end
 
