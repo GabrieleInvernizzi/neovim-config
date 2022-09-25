@@ -25,7 +25,7 @@ local settings = {
         oldfiles_directory = false,
         align = "center",
         fold_section = false,
-        title = "Basic Commands",
+        title = "Commands",
         margin = 5,
         content = {
             { " Find File", "Telescope find_files", "<leader>ff" },
@@ -44,7 +44,7 @@ local settings = {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = true,
-        paddings = { 1, 3, 3, 0 },
+        paddings = { 7, 4 },
     },
     mappings = {
         execute_command = "<CR>",
