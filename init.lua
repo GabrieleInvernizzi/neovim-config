@@ -1,3 +1,8 @@
+
+if vim.g.neovide then
+    require('user.neovide_settings')
+end
+
 require('user.options')
 require('user.keymaps')
 require('user.plugins')

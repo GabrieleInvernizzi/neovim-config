@@ -42,6 +42,7 @@ return require('packer').startup({function(use)
     use 'rafamadriz/friendly-snippets'
     use { 'startup-nvim/startup.nvim', requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' } }
     use 'folke/which-key.nvim'
+    use 'rafamadriz/neon'
 
     if packer_bootstrap then
         require('packer').sync()

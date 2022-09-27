@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  neon = {
+    loaded = true,
+    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/neon",
+    url = "https://github.com/rafamadriz/neon"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
