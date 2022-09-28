@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -164,6 +169,11 @@ _G.packer_plugins = {
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-neoclip.lua"] = {
+    loaded = true,
+    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
+    url = "https://github.com/AckslD/nvim-neoclip.lua"
+  },
   ["nvim-surround"] = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/nvim-surround",
@@ -209,11 +219,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
-  },
-  ["startup.nvim"] = {
-    loaded = true,
-    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/startup.nvim",
-    url = "https://github.com/startup-nvim/startup.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

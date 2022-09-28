@@ -29,6 +29,7 @@ return require('packer').startup({function(use)
     use 'kylechui/nvim-surround'
     use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'nightly' }
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
+    use 'AckslD/nvim-neoclip.lua'
     use { 'akinsho/toggleterm.nvim', tag = '*' }
     use 'lewis6991/gitsigns.nvim'
     use 'tpope/vim-fugitive'
@@ -44,9 +45,9 @@ return require('packer').startup({function(use)
     use 'williamboman/mason-lspconfig.nvim'
     use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
     use 'rafamadriz/friendly-snippets'
-    use { 'startup-nvim/startup.nvim', requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' } }
     use 'folke/which-key.nvim'
     use 'norcalli/nvim-colorizer.lua'
+    use 'stevearc/dressing.nvim'
 
     -- Language specific
     use 'simrat39/rust-tools.nvim'

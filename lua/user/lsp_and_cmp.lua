@@ -90,7 +90,7 @@ cmp.setup({
                 TypeParameter = "",
                 Unit = "",
             },
-            maxwidth = 10,
+            maxwidth = 30,
             ellipsis_char = '...',
         })
     },

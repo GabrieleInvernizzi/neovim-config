@@ -80,7 +80,12 @@ require('nvim-tree').setup({
     end
 })
 
-require('telescope').setup()
+local tel = require('telescope')
+
+tel.setup()
+require('neoclip').setup()
+
+tel.load_extension('neoclip')
 
 require('toggleterm').setup({
     open_mapping = [[<c-\>]],
@@ -106,8 +111,8 @@ require('nvim-autopairs').setup({
     disable_filetype = { 'TelescopePrompt' , 'vim' },
 })
 
-require('startup').setup({ theme = 'startup_theme' })
-
 require('which-key').setup()
 
 require('colorizer').setup()
+
+require('dressing').setup()
