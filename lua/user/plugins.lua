@@ -31,6 +31,7 @@ return require('packer').startup({function(use)
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
     use { 'akinsho/toggleterm.nvim', tag = '*' }
     use 'lewis6991/gitsigns.nvim'
+    use 'tpope/vim-fugitive'
     use 'windwp/nvim-autopairs'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'

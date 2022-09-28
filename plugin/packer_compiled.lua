@@ -225,6 +225,11 @@ _G.packer_plugins = {
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/which-key.nvim",
