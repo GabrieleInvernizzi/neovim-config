@@ -116,3 +116,5 @@ require('which-key').setup()
 require('colorizer').setup()
 
 require('dressing').setup()
+
+require('alpha').setup(require('startup_themes.basic').config)
