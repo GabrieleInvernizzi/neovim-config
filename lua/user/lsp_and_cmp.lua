@@ -1,7 +1,7 @@
 -- Lsp config
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'sumneko_lua' }
+    ensure_installed = { 'sumneko_lua', 'rust-analyzer' }
 })
 
 local lsp_defaults = {
@@ -11,8 +11,8 @@ local lsp_defaults = {
     capabilities = require('cmp_nvim_lsp').update_capabilities(
         vim.lsp.protocol.make_client_capabilities()
     ),
-    on_attach = function(client, bufnr)
-        vim.api.nvim_exec_autocmds('User', {pattern = 'LspAttached'})
+    on_attach = function(_, _)
+        vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
     end
 }
 
@@ -24,15 +24,32 @@ lsp_config.util.default_config = vim.tbl_deep_extend(
     lsp_defaults
 )
 
+
 lsp_config.sumneko_lua.setup({
     single_file_support = true,
     on_attach = lsp_defaults.on_attach
+})
+
+
+local rt = require('rust-tools')
+
+rt.setup({
+    server = {
+        on_attach = function(_, bufnr)
+            lsp_defaults.on_attach(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
+    },
 })
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 
@@ -53,17 +70,29 @@ cmp.setup({
     },
     formatting = {
         fields = {'menu', 'abbr', 'kind'},
-        format = function(entry, item)
-            local menu_icon = {
-                nvim_lsp = 'λ',
-                luasnip = '⋗',
-                buffer = 'Ω',
-                path = '🖫',
-            }
-
-            item.menu = menu_icon[entry.source.name]
-            return item
-        end,
+        format = lspkind.cmp_format({
+            mode = 'symbol',
+            symbol_map = {
+                Array = "",
+                Boolean = "⊨",
+                Class = "",
+                Constructor = "",
+                Key = "",
+                Namespace = "",
+                Null = "NULL",
+                Number = "#",
+                Object = "⦿",
+                Package = "",
+                Property = "",
+                Reference = "",
+                Snippet = "",
+                String = "𝓐",
+                TypeParameter = "",
+                Unit = "",
+            },
+            maxwidth = 10,
+            ellipsis_char = '...',
+        })
     },
     mapping = {
         ['<Up>'] = cmp.mapping.select_prev_item(select_opts),

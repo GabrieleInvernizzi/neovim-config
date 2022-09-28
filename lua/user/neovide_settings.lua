@@ -2,8 +2,8 @@
 vim.opt.guifont = { 'Fira Code', 'h14' }
 
 -- Gui settings
-vim.opt.winblend = 50
-vim.opt.pumblend = 70
+vim.opt.winblend = 20
+vim.opt.pumblend = 20
 
 -- Neovide specific settings
 vim.g.neovide_refresh_rate_idle = 5

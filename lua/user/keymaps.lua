@@ -2,6 +2,9 @@
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', { desc = 'save' })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
 vim.keymap.set('n', '<leader>b', '<cmd>bnext<cr>', { desc = 'go to next buffer' })
+vim.keymap.set('n', '<leader>p', '"+p', { desc = 'Paste from clipboard' })
+vim.keymap.set('n', '<M-k>', '<cmd>m -2<cr>', { desc = 'Move line up' })
+vim.keymap.set('n', '<M-j>', '<cmd>m +1<cr>', { desc = 'Move line down' })
 
 -- NvimTree keymaps
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
@@ -15,10 +18,10 @@ vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 
--- Lsp Keymaps
+-- Lsp keymaps
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspAttached',
-    desc = 'LSP actions',
+    desc = 'Lsp actions',
     callback = function()
         local bufmap = function(mode, lhs, rhs)
         local opts = {buffer = true}

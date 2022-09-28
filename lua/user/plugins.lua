@@ -18,6 +18,8 @@ end
 return require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'        -- packer
 
+    use 'lewis6991/impatient.nvim'      -- optimizer
+
     use 'navarasu/onedark.nvim'
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
     use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' }
@@ -36,13 +38,17 @@ return require('packer').startup({function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'onsails/lspkind.nvim'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
     use 'rafamadriz/friendly-snippets'
     use { 'startup-nvim/startup.nvim', requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' } }
     use 'folke/which-key.nvim'
-    use 'rafamadriz/neon'
+    use 'norcalli/nvim-colorizer.lua'
+
+    -- Language specific
+    use 'simrat39/rust-tools.nvim'
 
     if packer_bootstrap then
         require('packer').sync()

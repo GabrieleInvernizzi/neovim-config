@@ -1,3 +1,5 @@
+require('impatient')
+
 require('onedark').setup {
     style = 'warmer'
 }
@@ -81,9 +83,13 @@ require('nvim-tree').setup({
 require('telescope').setup()
 
 require('toggleterm').setup({
+    open_mapping = [[<c-\>]],
     direction = 'float',
-    shade_terminals = true,
-    float_ops = { border = 'curved' }
+    shade_terminals = false,
+    float_ops = {
+        border = 'curved',
+        winblend = 20
+    }
 })
 
 require('gitsigns').setup({
@@ -103,3 +109,5 @@ require('nvim-autopairs').setup({
 require('startup').setup({ theme = 'startup_theme' })
 
 require('which-key').setup()
+
+require('colorizer').setup()
