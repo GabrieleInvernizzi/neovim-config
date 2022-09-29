@@ -6,6 +6,8 @@ require('onedark').setup {
 
 require('onedark').load()
 
+require('auto-save').setup()
+
 require('lualine').setup({
     options = {
         theme = 'onedark',
