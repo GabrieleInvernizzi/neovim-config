@@ -1,10 +1,15 @@
 -- General keymaps
-vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', { desc = 'save' })
+vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', { desc = 'Save' })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true })
-vim.keymap.set('n', '<leader>b', '<cmd>bnext<cr>', { desc = 'go to next buffer' })
+vim.keymap.set('n', '<leader>b', '<cmd>bnext<cr>', { desc = 'Go to next buffer' })
 vim.keymap.set('n', '<leader>p', '"+p', { desc = 'Paste from clipboard' })
 vim.keymap.set('n', '<M-k>', '<cmd>m -2<cr>', { desc = 'Move line up' })
 vim.keymap.set('n', '<M-j>', '<cmd>m +1<cr>', { desc = 'Move line down' })
+-- Remap change split keymaps
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- NvimTree keymaps
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
