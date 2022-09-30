@@ -14,6 +14,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 15
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.pumheight = 10
 
 -- Global settings
 vim.g.mapleader = ' '
@@ -23,6 +24,7 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.showmode = false
+-- Cmp
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 

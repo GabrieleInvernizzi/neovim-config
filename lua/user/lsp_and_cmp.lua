@@ -42,6 +42,11 @@ rt.setup({
             -- Code action groups
             vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
         end,
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                command = "clippy"
+            }
+        }
     },
 })
 
@@ -69,7 +74,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered()
     },
     formatting = {
-        fields = {'menu', 'abbr', 'kind'},
+        fields = {'kind', 'abbr', 'menu'},
         format = lspkind.cmp_format({
             mode = 'symbol',
             symbol_map = {
@@ -90,8 +95,12 @@ cmp.setup({
                 TypeParameter = "",
                 Unit = "",
             },
-            maxwidth = 30,
+            maxwidth = 50,
             ellipsis_char = '...',
+            before = function (_, vim_item)
+                vim_item.menu = ""
+                return vim_item
+            end
         })
     },
     mapping = {
@@ -163,6 +172,7 @@ sign({name = 'DiagnosticSignInfo', text = ''})
 
 vim.diagnostic.config({
     virtual_text = true,
+    underline = true,
     severity_sort = true,
     float = {
         border = 'rounded',
