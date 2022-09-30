@@ -120,3 +120,7 @@ require('colorizer').setup()
 require('dressing').setup()
 
 require('alpha').setup(require('startup_themes.basic').config)
+
+require('session_manager').setup({
+    autoload_mode = require('session_manager.config').AutoloadMode.Disabled
+})

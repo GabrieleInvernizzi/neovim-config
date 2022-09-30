@@ -81,8 +81,7 @@ local buttons = {
         button("SPC f n", "  New file", "<cmd>ene <CR>"),
         button("SPC f f", "  Find file"),
         button("SPC f h", "  Recently opened files", "<cmd>Telescope oldfiles<cr>"),
-        button("SPC f m", "  Jump to bookmarks"),
-        button("SPC s l", "  Open last session"),
+        button("SPC s l", "  Open a session"),
     },
     opts = {
         spacing = 1,
