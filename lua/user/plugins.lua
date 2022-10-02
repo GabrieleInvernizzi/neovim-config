@@ -28,13 +28,14 @@ return require('packer').startup({function(use)
     use 'numToStr/Comment.nvim'
     use 'kylechui/nvim-surround'
     use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'nightly' }
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
-    use 'AckslD/nvim-neoclip.lua'
     use { 'akinsho/toggleterm.nvim', tag = '*' }
     use 'lewis6991/gitsigns.nvim'
-    use 'tpope/vim-fugitive'
     use 'windwp/nvim-autopairs'
-    use 'neovim/nvim-lspconfig'
+    use 'tpope/vim-fugitive'
+    -- Telescope
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
+    use 'AckslD/nvim-neoclip.lua'
+    use 'ahmedkhalf/project.nvim'
     -- cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -44,6 +45,7 @@ return require('packer').startup({function(use)
     use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
     use 'rafamadriz/friendly-snippets'
     -- lsp
+    use 'neovim/nvim-lspconfig'
     use 'onsails/lspkind.nvim'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'

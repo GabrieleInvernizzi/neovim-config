@@ -78,10 +78,10 @@ end
 local buttons = {
     type = "group",
     val = {
-        button("SPC f n", "  New file", "<cmd>ene <CR>"),
+        button("SPC f n", "  New file", "<cmd>ene<cr>"),
         button("SPC f f", "  Find file"),
         button("SPC f h", "  Recently opened files", "<cmd>Telescope oldfiles<cr>"),
-        button("SPC s l", "  Open a session"),
+        button("SPC f p", "  Open existing project", "<cmd>Telescope projects<cr>"),
     },
     opts = {
         spacing = 1,

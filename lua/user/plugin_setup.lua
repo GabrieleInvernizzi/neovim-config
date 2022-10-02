@@ -79,15 +79,28 @@ require('nvim-tree').setup({
         bufmap('c', api.node.navigate.parent_close, 'Close parent directory')
         bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
         bufmap('n', api.fs.create, 'Create new file')
-    end
+    end,
+    -- Required by project.nvim
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_root = true
+    }
 })
 
+-- Telescope
 local tel = require('telescope')
 
 tel.setup()
 require('neoclip').setup()
 
+require('project_nvim').setup({
+    detection_methods = { 'pattern' }
+})
+
 tel.load_extension('neoclip')
+tel.load_extension('projects')
 
 require('toggleterm').setup({
     open_mapping = [[<c-\>]],
