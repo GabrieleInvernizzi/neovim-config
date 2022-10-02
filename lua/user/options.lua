@@ -15,6 +15,7 @@ vim.opt.scrolloff = 15
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.pumheight = 10
+vim.opt.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize"
 
 -- Global settings
 vim.g.mapleader = ' '
