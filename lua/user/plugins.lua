@@ -35,16 +35,19 @@ return require('packer').startup({function(use)
     use 'tpope/vim-fugitive'
     use 'windwp/nvim-autopairs'
     use 'neovim/nvim-lspconfig'
+    -- cmp
+    use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
+    use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
+    use 'rafamadriz/friendly-snippets'
+    -- lsp
     use 'onsails/lspkind.nvim'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-    use { 'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*' }
-    use 'rafamadriz/friendly-snippets'
+
     use 'folke/which-key.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'stevearc/dressing.nvim'

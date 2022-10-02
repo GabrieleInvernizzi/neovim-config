@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -158,11 +163,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gabri/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["neovim-session-manager"] = {
-    loaded = true,
-    path = "/home/gabri/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
-    url = "https://github.com/Shatur/neovim-session-manager"
   },
   ["nvim-autopairs"] = {
     loaded = true,
