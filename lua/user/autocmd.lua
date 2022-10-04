@@ -1,10 +1,7 @@
-local config_group = vim.api.nvim_create_augroup('ConfigGroup', {})
-
 -- Lsp keymaps
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspAttached',
     desc = 'Lsp actions',
-    group = config_group,
     callback = function()
         local bufmap = function(mode, lhs, rhs)
         local opts = {buffer = true}
@@ -52,4 +49,3 @@ vim.api.nvim_create_autocmd('User', {
         bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
     end
 })
-

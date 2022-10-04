@@ -1,5 +1,11 @@
--- It is heavily based on the standard dashboard
 
+local status_ok, alpha = pcall(require, "alpha")
+
+if not status_ok then
+    return
+end
+
+-- It is heavily based on the standard dashboard
 local if_nil = vim.F.if_nil
 
 local default_terminal = {
@@ -108,10 +114,4 @@ local config = {
     },
 }
 
-return {
-    button = button,
-    section = section,
-    config = config,
-    -- theme config
-    leader = leader,
-}
+alpha.setup(config)
