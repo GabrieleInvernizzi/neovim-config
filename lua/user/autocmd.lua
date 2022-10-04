@@ -14,6 +14,9 @@ vim.api.nvim_create_autocmd('User', {
         -- Displays hover information about the symbol under the cursor
         bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
 
+        -- Format buffer
+        bufmap('n', '<C-f>', '<cmd>lua vim.lsp.buf.format()<cr>')
+
         -- Jump to the definition
         bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
 
@@ -40,7 +43,7 @@ vim.api.nvim_create_autocmd('User', {
         bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
 
         -- Show diagnostics in a floating window
-        bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+        bufmap('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<cr>')
 
         -- Move to the previous diagnostic
         bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')

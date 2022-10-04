@@ -58,6 +58,26 @@ require('nvim-treesitter.configs').setup({
                 ['@class.outer'] = '<c-v>', -- blockwise
             },
             include_surrounding_whitespace = true
+        },
+        move = {
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+                ["]m"] = "@function.outer",
+                ["]]"] = "@class.outer",
+            },
+            goto_next_end = {
+                ["]M"] = "@function.outer",
+                ["]["] = "@class.outer",
+            },
+            goto_previous_start = {
+                ["[m"] = "@function.outer",
+                ["[["] = "@class.outer",
+            },
+            goto_previous_end = {
+                ["[M"] = "@function.outer",
+                ["[]"] = "@class.outer",
+            },
         }
     }
 })
@@ -114,16 +134,16 @@ require('toggleterm').setup({
 
 require('gitsigns').setup({
     signs = {
-        add = {text = '▎'},
-        change = {text = '▎'},
-        delete = {text = '➤'},
-        topdelete = {text = '➤'},
-        changedelete = {text = '▎'},
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '➤' },
+        topdelete = { text = '➤' },
+        changedelete = { text = '▎' },
     }
 })
 
 require('nvim-autopairs').setup({
-    disable_filetype = { 'TelescopePrompt' , 'vim' },
+    disable_filetype = { 'TelescopePrompt', 'vim' },
 })
 
 require('which-key').setup()
@@ -133,3 +153,5 @@ require('colorizer').setup()
 require('dressing').setup()
 
 require('alpha').setup(require('startup_themes.basic').config)
+
+require('better_escape').setup()

@@ -45,6 +45,9 @@ rt.setup({
         ["rust-analyzer"] = {
             checkOnSave = {
                 command = "clippy"
+            },
+            inlayHints = {
+                closureReturnTypeHints = "with_block"
             }
         }
     },
