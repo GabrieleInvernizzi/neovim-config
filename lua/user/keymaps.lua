@@ -33,8 +33,3 @@ vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 vim.keymap.set('n', '<leader>fe', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 vim.keymap.set('n', '<leader>fn', '<cmd>Telescope neoclip<cr>')
-
--- Session keymaps
-vim.keymap.set('n', '<leader>sl', '<cmd>SessionManager load_session<cr>')
-vim.keymap.set('n', '<leader>sll', '<cmd>SessionManager load_last_session<cr>')
-vim.keymap.set('n', '<leader>ss', '<cmd>SessionManager save_current_session<cr>')
