@@ -1,7 +1,20 @@
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight test on yank",
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "Visual",
+            on_visual = false,
+            timeout = 150
+        })
+    end
+})
+
+
 -- Lsp keymaps
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'LspAttached',
-    desc = 'Lsp actions',
+vim.api.nvim_create_autocmd("User", {
+    pattern = "LspAttached",
+    desc = "Lsp actions",
     callback = function()
         local bufmap = function(mode, lhs, rhs)
             local opts = { buffer = true }
