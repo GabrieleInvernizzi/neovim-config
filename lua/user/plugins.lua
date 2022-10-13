@@ -52,6 +52,7 @@ return require('packer').startup({function(use)
 
     use 'folke/which-key.nvim'
     use 'norcalli/nvim-colorizer.lua'
+    use 'RRethy/vim-illuminate'
     use 'stevearc/dressing.nvim'
     use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
     use 'max397574/better-escape.nvim'

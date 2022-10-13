@@ -14,6 +14,7 @@ require("user.gitsigns")
 require("user.alpha")
 require("user.cmp")
 require("user.lsp")
+require("user.illuminate")
 require("user.general_plugin_setup")
 
 if vim.g.neovide then
