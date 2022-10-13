@@ -5,12 +5,6 @@ if status_ok then
 end
 
 
-status_ok, plugin = pcall(require, "auto-save")
-
-if status_ok then
-    plugin.setup()
-end
-
 status_ok, plugin = pcall(require, "nvim-autopairs")
 
 if status_ok then
@@ -18,7 +12,6 @@ if status_ok then
         disable_filetype = { 'TelescopePrompt', 'vim' },
     })
 end
-
 
 
 status_ok, plugin = pcall(require, "Comment")
