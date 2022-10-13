@@ -3,7 +3,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight test on yank",
     callback = function()
         vim.highlight.on_yank({
-            higroup = "Visual",
+            higroup = "StatusLine",
             on_visual = false,
             timeout = 150
         })

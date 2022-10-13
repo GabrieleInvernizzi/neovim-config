@@ -17,10 +17,10 @@ ill.configure({
 })
 
 local highlight = {
-    
+   bg = "#323641"
 }
 
-vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#3b3f4c" })
-vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#3b3f4c" })
-vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#3b3f4c" })
+vim.api.nvim_set_hl(0, "IlluminatedWordText", highlight)
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", highlight)
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", highlight)
 
