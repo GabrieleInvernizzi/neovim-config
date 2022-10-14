@@ -66,7 +66,9 @@ return require('packer').startup({function(use)
 end,
 config = {
     display = {
-        open_fn = require('packer.util').float,
+        open_fn = function ()
+            require('packer.util').float({ border = "rounded" })
+        end,
     }
 }})
 
