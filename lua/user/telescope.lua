@@ -9,6 +9,8 @@ end
 
 tel.setup()
 
+tel.load_extension("file_browser")
+
 if status_ok_nc then
     nc.setup()
     tel.load_extension("neoclip")

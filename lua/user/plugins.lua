@@ -27,13 +27,13 @@ return require('packer').startup({function(use)
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'numToStr/Comment.nvim'
     use 'kylechui/nvim-surround'
-    use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'nightly' }
     use { 'akinsho/toggleterm.nvim', tag = '*' }
     use 'lewis6991/gitsigns.nvim'
     use 'windwp/nvim-autopairs'
     use 'tpope/vim-fugitive'
     -- Telescope
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
+    use "nvim-telescope/telescope-file-browser.nvim"
     use 'AckslD/nvim-neoclip.lua'
     use 'ahmedkhalf/project.nvim'
     -- cmp

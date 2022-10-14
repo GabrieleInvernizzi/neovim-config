@@ -86,6 +86,7 @@ local buttons = {
     val = {
         button("SPC f n", "  New file", "<cmd>ene<cr>"),
         button("SPC f f", "  Find file"),
+        button("SPC f b", "🖿  File browser"),
         button("SPC f h", "  Recently opened files", "<cmd>Telescope oldfiles<cr>"),
         button("SPC f p", "  Open existing project", "<cmd>Telescope projects<cr>"),
     },
