@@ -20,7 +20,10 @@ return require('packer').startup({function(use)
 
     use 'lewis6991/impatient.nvim'      -- optimizer
 
+    -- themes
     use 'navarasu/onedark.nvim'
+    use 'shaunsingh/nord.nvim'
+
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
     use { 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

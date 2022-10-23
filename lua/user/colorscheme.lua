@@ -1,11 +1,10 @@
-local status_ok, onedark = pcall(require, "onedark")
+local status_ok, nord = pcall(require, "nord")
+
+vim.g.nord_contrast = true
+vim.g.nord_italic = false
 
 if status_ok then
-    onedark.setup {
-        style = 'warmer'
-    }
-
-    onedark.load()
+    nord.set()
 else
     vim.cmd[[colorscheme default]]
 end

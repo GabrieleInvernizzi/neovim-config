@@ -1,7 +1,7 @@
 -- TODO: add pcall
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'sumneko_lua', 'rust-analyzer' }
+    ensure_installed = { 'sumneko_lua', 'rust_analyzer' }
 })
 
 local lsp_defaults = {
