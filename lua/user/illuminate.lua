@@ -17,7 +17,7 @@ ill.configure({
 })
 
 local highlight = {
-   bg = "#323641"
+   bg = "#434C5E"
 }
 
 vim.api.nvim_set_hl(0, "IlluminatedWordText", highlight)
