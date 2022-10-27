@@ -1,4 +1,3 @@
-
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
 -- TODO: add pcall
@@ -14,7 +13,9 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
 
-local select_opts = { behavior = cmp.SelectBehavior.Select } cmp.setup({
+local select_opts = { behavior = cmp.SelectBehavior.Select }
+
+cmp.setup({
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -26,11 +27,18 @@ local select_opts = { behavior = cmp.SelectBehavior.Select } cmp.setup({
         { name = 'path' },
         { name = 'buffer' },
     },
+    duplicates = {
+        nvim_lsp = 1,
+        luasnip = 1,
+        buffer = 1,
+        path = 1,
+    },
     window = {
         documentation = cmp.config.window.bordered()
     },
+    preselect = cmp.PreselectMode.None,
     formatting = {
-        fields = {'kind', 'abbr', 'menu'},
+        fields = { 'kind', 'abbr', 'menu' },
         format = lspkind.cmp_format({
             mode = 'symbol',
             symbol_map = {
@@ -72,49 +80,49 @@ local select_opts = { behavior = cmp.SelectBehavior.Select } cmp.setup({
 
         ['<C-e>'] = cmp.mapping.abort(),
 
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
         ['<C-d>'] = cmp.mapping(function(fallback)
-                        if luasnip.jumpable(1) then
-                            luasnip.jump(1)
-                        else
-                            fallback()
-                        end
-                    end, {'i', 's'}),
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
 
         ['<C-b>'] = cmp.mapping(function(fallback)
-                        if luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, {'i', 's'}),
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
 
         ['<Tab>'] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.expandable() then
-                            luasnip.expand()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
-                        elseif has_words_before() then
-                            cmp.complete()
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s" }),
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expandable() then
+                luasnip.expand()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
 
         ['<S-Tab>'] = cmp.mapping(function(fallback)
-                        local col = vim.fn.col('.') - 1
+            local col = vim.fn.col('.') - 1
 
-                        if cmp.visible() then
-                            cmp.select_next_item(select_opts)
-                        elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                            fallback()
-                        else
-                            cmp.complete()
-                        end
-                    end, {'i', 's'})
+            if cmp.visible() then
+                cmp.select_next_item(select_opts)
+            elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+                fallback()
+            else
+                cmp.complete()
+            end
+        end, { 'i', 's' })
     }
 })
 
@@ -127,10 +135,10 @@ local sign = function(opts)
     })
 end
 
-sign({name = 'DiagnosticSignError', text = '✘'})
-sign({name = 'DiagnosticSignWarn', text = '▲'})
-sign({name = 'DiagnosticSignHint', text = '⚑'})
-sign({name = 'DiagnosticSignInfo', text = ''})
+sign({ name = 'DiagnosticSignError', text = '✘' })
+sign({ name = 'DiagnosticSignWarn', text = '▲' })
+sign({ name = 'DiagnosticSignHint', text = '⚑' })
+sign({ name = 'DiagnosticSignInfo', text = '' })
 
 
 vim.diagnostic.config({
@@ -162,17 +170,16 @@ cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
         { name = 'path' }
     },
-    {
-      { name = 'cmdline' }
-    })
+        {
+            { name = 'cmdline' }
+        })
 })
 
-for _,v in pairs({ '/', '?' }) do
+for _, v in pairs({ '/', '?' }) do
     cmp.setup.cmdline(v, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' }
-      }
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = 'buffer' }
+        }
     })
 end
-
