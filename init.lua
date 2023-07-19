@@ -30,6 +30,9 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Undo tree 
+  { 'mbbill/undotree' },
+
   -- NOTE: LSP related plguins.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -48,6 +51,9 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+
+  -- LSP extensions
+  { 'simrat39/rust-tools.nvim' },
 
   {
     -- Autocompletion
@@ -201,7 +207,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'auto'
+vim.wo.signcolumn = 'yes'
 
 -- Scrolloff
 vim.o.scrolloff = 15
@@ -225,6 +231,22 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+vim.keymap.set('n', '<leader>ff', ':Ex<CR>', { desc = 'Open file listing' })
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
+
+vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+vim.keymap.set('x', '<leader>p', '\"_dP')
+
+vim.keymap.set('n', 'Q', '<nop>')
+
+
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -246,6 +268,9 @@ require('telescope').setup {
     },
   },
 }
+
+-- Simple plugin configuration
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -342,10 +367,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
@@ -378,8 +399,8 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+  -- Create a command `:format` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, 'format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
@@ -390,10 +411,10 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
 
   lua_ls = {
@@ -427,6 +448,21 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- Setup language server extensions
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function (_, bufnr)
+      on_attach(_, bufnr)
+
+      vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, { buffer = bufnr, desc = 'Hover Documentation' })
+      vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr, desc = '[C]ode [A]ction' })
+    end
+  }
+})
+
 
 -- [[ Configure nvim-cmp ]]
 local cmp = require 'cmp'
