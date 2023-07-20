@@ -142,6 +142,16 @@ require('lazy').setup({
     },
   },
 
+  -- Add ketmaps to edit (),'',"", ecc.
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({})
+    end
+  },
+
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -400,7 +410,7 @@ local on_attach = function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'format', function(_)
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
