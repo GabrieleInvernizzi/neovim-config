@@ -183,6 +183,14 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  -- Sticky headers
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup()
+    end,
+  },
+
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
