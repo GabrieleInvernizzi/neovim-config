@@ -11,9 +11,6 @@ require('telescope').setup {
   },
 }
 
--- Simple plugin configuration
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
