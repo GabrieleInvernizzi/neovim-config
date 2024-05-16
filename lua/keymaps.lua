@@ -8,7 +8,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Handy remaps
-vim.keymap.set('n', '<leader>ff', ':Ex<CR>', { desc = 'Open file listing' })
+vim.keymap.set('n', '<leader>ff', '<CMD>Oil<CR>', { desc = 'Open file listing' })
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
