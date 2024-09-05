@@ -121,14 +121,12 @@ return {
       },
     },
   },
-
   {
     -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
+    "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {}
+    commit = "29be0919b91fb59eca9e90690d76014233392bef",
   },
-
   -- Add ketmaps to edit (),'',"", ecc.
   {
     "kylechui/nvim-surround",
